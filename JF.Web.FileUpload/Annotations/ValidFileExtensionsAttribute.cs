@@ -1,18 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
 
 namespace JF.Web.FileUpload.Annotations {
 
+	/// <summary>
+	///     Valides file extensions for a HttpPostedFileBase property
+	/// </summary>
+	[AttributeUsage( AttributeTargets.Property , AllowMultiple = false , Inherited = true )]
 	public class ValidFileExtensionsAttribute : DataTypeAttribute , IClientValidatable {
 
 		private readonly FileExtensionsAttribute _innerAttribute = new FileExtensionsAttribute();
 
+		/// <summary />
 		public ValidFileExtensionsAttribute() : base( DataType.Upload ) {
 			ErrorMessage = _innerAttribute.ErrorMessage;
 		}
 
+		/// <summary>
+		///     A list of valid extensions
+		/// </summary>
 		public string Extensions {
 			get {
 				return _innerAttribute.Extensions;
@@ -29,7 +38,9 @@ namespace JF.Web.FileUpload.Annotations {
 				ValidationType = "accept" ,
 				ErrorMessage = ErrorMessage
 			};
+			
 			rule.ValidationParameters["exts"] = _innerAttribute.Extensions;
+			
 			yield return rule;
 		}
 
@@ -39,11 +50,8 @@ namespace JF.Web.FileUpload.Annotations {
 
 		public override bool IsValid( object value ) {
 			var file = value as HttpPostedFileBase;
-			if ( file != null ) {
-				return _innerAttribute.IsValid( file.FileName );
-			}
-
-			return _innerAttribute.IsValid( value );
+			
+			return _innerAttribute.IsValid( file != null ? file.FileName : value );
 		}
 
 	}

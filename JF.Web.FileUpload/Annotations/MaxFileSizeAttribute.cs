@@ -1,13 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web;
 
 namespace JF.Web.FileUpload.Annotations {
 
+	/// <summary>
+	///     Validates the file size of a HttpPostedFileBase property
+	/// </summary>
+	[AttributeUsage( AttributeTargets.Property , AllowMultiple = false , Inherited = true )]
 	public class MaxFileSizeAttribute : ValidationAttribute {
 
 		private readonly int _maxFileSize;
 
+		/// <summary />
+		/// <param name="maxMbFileSize"></param>
 		public MaxFileSizeAttribute( int maxMbFileSize ) {
 			_maxFileSize = maxMbFileSize * 8 * 1024 * 1024;
 		}

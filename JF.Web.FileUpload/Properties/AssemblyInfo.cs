@@ -1,16 +1,17 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("JF.Web.FileUpload")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription( "File upload utilities for the .NET MVC" )]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany( "Josef Fazekas" )]
 [assembly: AssemblyProduct("JF.Web.FileUpload")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright( "Copyright © Josef Fazekas 2014" )]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,3 +35,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguageAttribute( "en" )]

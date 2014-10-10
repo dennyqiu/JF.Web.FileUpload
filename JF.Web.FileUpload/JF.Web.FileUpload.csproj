@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\JF.Web.FileUpload.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +29,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\JF.Web.FileUpload.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>th3untitled.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -70,6 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="th3untitled.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
